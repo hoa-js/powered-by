@@ -1,18 +1,18 @@
-## @hoajs/poweredBy
+## @hoajs/powered-by
 
 PoweredBy middleware for Hoa.
 
 ## Installation
 
 ```bash
-$ npm i @hoajs/poweredBy --save
+$ npm i @hoajs/powered-by --save
 ```
 
 ## Quick Start
 
 ```js
 import { Hoa } from 'hoa'
-import { poweredBy } from '@hoajs/poweredBy'
+import { poweredBy } from '@hoajs/powered-by'
 
 const app = new Hoa()
 app.use(poweredBy())
@@ -26,7 +26,7 @@ export default app
 
 ## Documentation
 
-The documentation is available on [hoa-js.com](https://hoa-js.com/middleware/poweredBy.html)
+The documentation is available on [hoa-js.com](https://hoa-js.com/middleware/powered-by.html)
 
 ## Test (100% coverage)
 

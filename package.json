@@ -1,7 +1,7 @@
 {
-  "name": "@hoajs/poweredBy",
+  "name": "@hoajs/powered-by",
   "version": "0.1.1",
-  "description": "PoweredBy middleware for Hoa.",
+  "description": "Powered-By middleware for Hoa.",
   "main": "./dist/cjs/index.js",
   "type": "module",
   "module": "./dist/esm/index.js",
@@ -35,7 +35,9 @@
   "keywords": [
     "hoa",
     "middleware",
-    "poweredBy"
+    "poweredBy",
+    "response",
+    "X-Powered-By"
   ],
   "devDependencies": {
     "@commitlint/cli": "20.1.0",
