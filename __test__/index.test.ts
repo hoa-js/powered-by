@@ -12,37 +12,27 @@ describe('poweredBy middleware', () => {
   it('should set default X-Powered-By header', async () => {
     app.use(poweredBy())
     app.use(async (ctx) => {
-      ctx.res.body = 'Hello Hoa'
+      ctx.res.body = 'Hello, Hoa!'
     })
 
     const response = await app.fetch(new Request('http://localhost/'))
     expect(response.headers.get('X-Powered-By')).toBe('Hoa')
   })
 
-  it('should work without options parameter', async () => {
-    app.use(poweredBy())
+  it('should not use default when serverName is empty string', async () => {
+    app.use(poweredBy(''))
     app.use(async (ctx) => {
-      ctx.res.body = 'Hello Hoa'
+      ctx.res.body = 'Hello, Hoa!'
     })
 
     const response = await app.fetch(new Request('http://localhost/'))
-    expect(response.headers.get('X-Powered-By')).toBe('Hoa')
-  })
-
-  it('should use default when serverName is empty string', async () => {
-    app.use(poweredBy({ serverName: '' }))
-    app.use(async (ctx) => {
-      ctx.res.body = 'Hello Hoa'
-    })
-
-    const response = await app.fetch(new Request('http://localhost/'))
-    expect(response.headers.get('X-Powered-By')).toBe('Hoa')
+    expect(response.headers.get('X-Powered-By')).toBe('')
   })
 
   it('should set custom server name', async () => {
-    app.use(poweredBy({ serverName: 'MyServer' }))
+    app.use(poweredBy('MyServer'))
     app.use(async (ctx) => {
-      ctx.res.body = 'Hello Hoa'
+      ctx.res.body = 'Hello, Hoa!'
     })
 
     const response = await app.fetch(new Request('http://localhost/'))
@@ -50,10 +40,10 @@ describe('poweredBy middleware', () => {
   })
 
   it('Should not return duplicate values', async () => {
-    app.use(poweredBy({ serverName: 'MyServer' }))
-    app.use(poweredBy({ serverName: 'MyServer' }))
+    app.use(poweredBy('MyServer'))
+    app.use(poweredBy('MyServer'))
     app.use(async (ctx) => {
-      ctx.res.body = 'Hello Hoa'
+      ctx.res.body = 'Hello, Hoa!'
     })
 
     const response = await app.fetch(new Request('http://localhost/'))

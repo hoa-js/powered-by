@@ -15,7 +15,7 @@ import { Hoa } from 'hoa'
 import { poweredBy } from '@hoajs/powered-by'
 
 const app = new Hoa()
-app.use(poweredBy())
+app.use(poweredBy('MyApp'))
 
 app.use(async (ctx) => {
   ctx.res.body = `Hello, Hoa!`
